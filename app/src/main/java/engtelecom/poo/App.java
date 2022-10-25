@@ -8,6 +8,11 @@ public class App {
         return "Hello World!";
     }
 
+    // TODO implement
+    public String menu() {
+        return "";
+    }
+
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
     }
