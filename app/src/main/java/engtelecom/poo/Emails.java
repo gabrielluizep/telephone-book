@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 public class Emails {
 
+  private static final String EMAIL_REGEX = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
+
   private HashMap<String, String> emails;
 
   Emails() {
@@ -11,15 +13,33 @@ public class Emails {
   }
 
   public boolean add(String label, String email) {
-    return false;
+    if (this.emails.containsKey(label) || !email.matches(EMAIL_REGEX)) {
+      return false;
+    }
+
+    this.emails.put(label, email);
+
+    return true;
   }
 
-  public boolean remove(String email) {
-    return false;
+  public boolean remove(String label) {
+    if (!this.emails.containsKey(label)) {
+      return false;
+    }
+
+    this.emails.remove(label);
+
+    return true;
   }
 
-  public boolean update(String email, String newEmail) {
-    return false;
+  public boolean update(String label, String newEmail) {
+    if ((!this.emails.containsKey(label)) || (!newEmail.matches(EMAIL_REGEX))) {
+      return false;
+    }
+
+    this.emails.put(label, newEmail);
+
+    return true;
   }
 
   // TODO implement
