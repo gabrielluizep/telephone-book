@@ -14,11 +14,11 @@ public class Phones {
     return false;
   }
 
-  public boolean remove(String phone) {
+  public boolean remove(String label) {
     return false;
   }
 
-  public boolean update(String phone, String newPhone) {
+  public boolean update(String label, String newPhone) {
     return false;
   }
 
